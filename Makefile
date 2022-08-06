@@ -5,6 +5,10 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+LIBFT = libft/libft.a
+PRINTF = ft_printf/libftprintf.a
+MLX = mlx/libmlx.dylib
+
 SRCS = 	check_parse.c			\
 		draw_map.c	\
 		move_player.c	\
@@ -16,13 +20,20 @@ SRCS = 	check_parse.c			\
 
 OBJS = $(SRCS:.c=.o)
 
-all: ${NAME} ${OBJS}
+all: ${NAME}
 
-$(NAME):
+$(NAME): $(OBJS) $(LIBFT) $(MLX) $(PRINTF)
+	$(CC) $(CFLAGS) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -Llibft -lft ft_printf/libftprintf.a  -o so_long
+
+$(LIBFT):
 	@make bonus -C ./libft
+
+$(PRINTF):
 	@make -C ./ft_printf
+
+$(MLX): 
 	@make -C ./mlx
-	$(CC) $(CFLAGS)  $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit -Llibft -lft ft_printf/libftprintf.a  -o so_long
+	cp $(MLX) .
 
 clean:
 	make -C ./libft clean
@@ -33,7 +44,9 @@ clean:
 fclean: clean
 	make -C ./libft fclean
 	make -C ./ft_printf fclean
-	rm -f $(NAME)
+	rm -f $(NAME) libmlx.dylib
+
+bonus: $(NAME)
 
 
 re: fclean all
