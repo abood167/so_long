@@ -6,7 +6,7 @@
 /*   By: abin-saa <abin-saa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:59:30 by abin-saa          #+#    #+#             */
-/*   Updated: 2022/08/06 13:04:41 by abin-saa         ###   ########.fr       */
+/*   Updated: 2022/08/08 02:27:16 by abin-saa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	move_left_helper(t_game *game, char *line, int i, int line_num)
 		return (0);
 	if (line[i - 1] == '1')
 	{
+		draw_image(game, game->floor, i, line_num);
+		draw_image(game, game->plyer, i, line_num);
 		game->steps--;
 		return (0);
 	}
@@ -60,7 +62,7 @@ int	move_left_helper(t_game *game, char *line, int i, int line_num)
 	draw_image(game, game->plyer, i - 1, line_num);
 	game->face = 1;
 	draw_image(game, game->floor, i, line_num);
-	ft_printf("Moves = %d\n", game->steps);
+	ft_printf(KCYN"Moves = %d\n"KNRM, game->steps);
 	return (0);
 }
 
@@ -109,6 +111,6 @@ int	mvoe_down_helper(t_list *node, t_game *game, int i, int cnt)
 	else
 		draw_image(game, game->plyer2, i, cnt + 1);
 	draw_image(game, game->floor, i, cnt);
-	ft_printf("Moves = %d\n", game->steps);
+	ft_printf(KMAG"Moves = %d\n"KNRM, game->steps);
 	return (0);
 }

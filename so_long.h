@@ -6,7 +6,7 @@
 /*   By: abin-saa <abin-saa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:42:57 by abin-saa          #+#    #+#             */
-/*   Updated: 2022/08/01 17:39:15 by abin-saa         ###   ########.fr       */
+/*   Updated: 2022/08/08 02:11:02 by abin-saa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include"./mlx/mlx.h"
+
+# define KNRM  "\x1B[0m"
+# define KRED  "\x1B[31m"
+# define KGRN  "\x1B[32m"
+# define KYEL  "\x1B[33m"
+# define KBLU  "\x1B[34m"
+# define KMAG  "\x1B[35m"
+# define KCYN  "\x1B[36m"
+# define KWHT  "\x1B[37m"
 
 # define FLOOR "./graond.xpm"
 # define WALL "./wall.xpm"

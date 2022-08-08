@@ -6,7 +6,7 @@
 /*   By: abin-saa <abin-saa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 09:43:16 by abin-saa          #+#    #+#             */
-/*   Updated: 2022/08/06 13:04:41 by abin-saa         ###   ########.fr       */
+/*   Updated: 2022/08/08 02:28:36 by abin-saa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int	move_right_helper(t_game *game, char *line, int i, int line_num)
 		return (0);
 	if (line[i + 1] == '1')
 	{
+		draw_image(game, game->floor, i, line_num);
+		draw_image(game, game->plyer2, i, line_num);
 		game->steps--;
 		return (0);
 	}
@@ -90,7 +92,7 @@ int	move_right_helper(t_game *game, char *line, int i, int line_num)
 		game->face = 2;
 		draw_image(game, game->floor, i, line_num);
 	}
-	ft_printf("Moves = %d\n", game->steps);
+	ft_printf(KGRN"Moves = %d\n"KNRM, game->steps);
 	return (0);
 }
 
@@ -139,6 +141,6 @@ int	move_up_helper(t_list **nodes, t_game *game, int i, int cnt)
 	else
 		draw_image(game, game->plyer, i, cnt - 1);
 	draw_image(game, game->floor, i, cnt);
-	ft_printf("Moves = %d\n", game->steps);
+	ft_printf(KBLU"Moves = %d\n"KNRM, game->steps);
 	return (0);
 }

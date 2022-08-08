@@ -6,7 +6,7 @@
 /*   By: abin-saa <abin-saa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:35:21 by abin-saa          #+#    #+#             */
-/*   Updated: 2022/08/06 13:04:41 by abin-saa         ###   ########.fr       */
+/*   Updated: 2022/08/08 03:52:30 by abin-saa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_close(t_game	*game)
 {
+	ft_printf("nice for playing");
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	ft_lstclear (&game->map, free);
 	mlx_destroy_image(game->mlx, game->img);
@@ -22,7 +23,9 @@ int	ft_close(t_game	*game)
 
 int	ft_close2(t_game	*game)
 {
-	ft_printf("Moves = %d\n", game->steps);
+	ft_printf(KRED"Moves = %d\n"KNRM, game->steps);
+	ft_printf(KYEL"you have done %d of MOVES!\n"KNRM, game->steps);
+	ft_printf("game over ;)");
 	ft_lstclear (&game->map, free);
 	mlx_destroy_image(game->mlx, game->img);
 	mlx_destroy_window(game->mlx, game->mlx_win);
